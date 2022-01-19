@@ -1,6 +1,7 @@
 package ticket.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ticket.dto.SeatResponseDto;
 import ticket.dto.ShowInfoResponseDto;
@@ -44,5 +45,11 @@ public class ShowAndSeatController {
     @GetMapping("/api/v1/seat")
     public List<SeatResponseDto> findAllSeat() {
         return showAndSeatService.findAllSeat();
+    }
+
+    @GetMapping("/show")
+    public String show(Model model){
+        model.addAttribute("shows",findAllShow());
+        return "test/infoShow";
     }
 }
