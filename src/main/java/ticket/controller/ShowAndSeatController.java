@@ -47,9 +47,4 @@ public class ShowAndSeatController {
         return showAndSeatService.findAllSeat();
     }
 
-    @GetMapping("/show")
-    public String show(Model model){
-        model.addAttribute("shows",findAllShow());
-        return "test/infoShow";
-    }
 }
